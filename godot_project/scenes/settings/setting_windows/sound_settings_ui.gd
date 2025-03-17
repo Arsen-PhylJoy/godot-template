@@ -1,15 +1,15 @@
-class_name SoundSettingsWindow
+class_name SoundSettingsUI
 extends Control
 
-var config: RSettings = Global.settings
+@onready var settings: RSettings = Global.settings
 @onready var _master_slider: SliderSettings = %MasterSlider
 @onready var _sfx_slider: SliderSettings = %SFXSlider
 @onready var _music_slider: SliderSettings = %MusicSlider
 
 func _ready() -> void:
-	_master_slider.init_slider("Master", config.get_master_value())
-	_sfx_slider.init_slider("SFX", config.get_sfx_value())
-	_music_slider.init_slider("Music", config.get_music_value())
+	_master_slider.init_slider("MASTER", settings.get_master_value())
+	_sfx_slider.init_slider("SOUND_EFFECTS", settings.get_sfx_value())
+	_music_slider.init_slider("MUSIC", settings.get_music_value())
 	_connect_signals()
 
 func _connect_signals() -> void:
@@ -18,10 +18,10 @@ func _connect_signals() -> void:
 	if _music_slider.value_changed.connect(_on_value_changed_music): printerr("Fail: ",get_stack())
 
 func _on_value_changed_master(value: int) -> void:
-	config.set_master_to(value)
+	settings.set_master_to(value)
 
 func _on_value_changed_sfx(value: int) -> void:
-	config.set_sfx_to(value)
+	settings.set_sfx_to(value)
 
 func _on_value_changed_music(value: int) -> void:
-	config.set_music_to(value)
+	settings.set_music_to(value)

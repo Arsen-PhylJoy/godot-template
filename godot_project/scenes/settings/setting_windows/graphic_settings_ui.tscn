@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c05ux4ga1jtti"]
 
-[ext_resource type="Script" uid="uid://cfwqxv117oojl" path="res://scenes/settings/graphic_settings.gd" id="1_axqny"]
+[ext_resource type="Script" uid="uid://cfwqxv117oojl" path="res://scenes/settings/setting_windows/graphic_settings_ui.gd" id="1_axqny"]
 [ext_resource type="PackedScene" uid="uid://dngne50y67an7" path="res://scenes/settings/primitives/toggle_settings.tscn" id="2_07d4j"]
 
 [node name="GraphicSettings" type="Control"]
@@ -23,7 +23,7 @@ grow_vertical = 2
 [node name="WindowLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Window"
+text = "WINDOW"
 
 [node name="WindowVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -37,7 +37,7 @@ layout_mode = 2
 
 [node name="OptionsLabel" type="Label" parent="VBoxContainer/WindowVBoxContainer/ResolutionHBoxContainer2"]
 layout_mode = 2
-text = "Window Resolution"
+text = "WINDOW_RES"
 
 [node name="ResolutionOptionButton" type="OptionButton" parent="VBoxContainer/WindowVBoxContainer/ResolutionHBoxContainer2"]
 unique_name_in_owner = true
@@ -70,14 +70,14 @@ layout_mode = 2
 
 [node name="OptionsLabel" type="Label" parent="VBoxContainer/WindowVBoxContainer/FrameRateHBoxContainer3"]
 layout_mode = 2
-text = "Frame Rate"
+text = "FRAME_RATE"
 
 [node name="FrameRateOptionButton" type="OptionButton" parent="VBoxContainer/WindowVBoxContainer/FrameRateHBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 0
 item_count = 6
-popup/item_0/text = "No Limit"
+popup/item_0/text = "NO_LIMIT"
 popup/item_0/id = 0
 popup/item_1/text = "30"
 popup/item_1/id = 1

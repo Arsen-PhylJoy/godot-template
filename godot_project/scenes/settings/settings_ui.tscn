@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://ldg2jq7gg87x"]
+
+[ext_resource type="Script" uid="uid://bhomfk2kyqnn3" path="res://scenes/settings/settings_ui.gd" id="1_av8nu"]
+[ext_resource type="PackedScene" uid="uid://36o0p33tb04a" path="res://scenes/settings/setting_windows/game_settings_ui.tscn" id="2_cwu4w"]
+[ext_resource type="PackedScene" uid="uid://c05ux4ga1jtti" path="res://scenes/settings/setting_windows/graphic_settings_ui.tscn" id="2_x0p48"]
+[ext_resource type="PackedScene" uid="uid://d0dqam4dmmdh4" path="res://scenes/settings/setting_windows/sound_settings_ui.tscn" id="3_cwu4w"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_av8nu")
+
+[node name="SettingsWindows" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -131.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="GAME" parent="SettingsWindows" instance=ExtResource("2_cwu4w")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GRAPHIC" parent="SettingsWindows" instance=ExtResource("2_x0p48")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="SOUND" parent="SettingsWindows" instance=ExtResource("3_cwu4w")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1434.0
+offset_top = 816.0
+offset_right = -10.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"

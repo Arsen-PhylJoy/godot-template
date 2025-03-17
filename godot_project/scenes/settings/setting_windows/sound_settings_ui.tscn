@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0dqam4dmmdh4"]
 
-[ext_resource type="Script" uid="uid://0f875f3d1fs7" path="res://scenes/settings/sound_settings.gd" id="1_dv7wy"]
+[ext_resource type="Script" uid="uid://0f875f3d1fs7" path="res://scenes/settings/setting_windows/sound_settings_ui.gd" id="1_dv7wy"]
 [ext_resource type="PackedScene" uid="uid://diu4xp1co5afm" path="res://scenes/settings/primitives/slider_settings.tscn" id="2_jq8nx"]
 
 [node name="SoundSettings" type="Control"]

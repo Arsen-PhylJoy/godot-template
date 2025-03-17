@@ -1,0 +1,17 @@
+Key,en,ru
+GAME,Game,Игра
+GRAPHIC,Graphic,Графика
+SOUND,Sound,Звук
+MASTER,Master,Общий
+SOUND_EFFECTS,Sound Effects,Звуковые Эффекты
+MUSIC,Music,Музыка
+LANGUAGE,Language,Язык
+FULLSCREEN,Fullscreen,Полный Экран
+WINDOW_RES,Window Resolution,Разрешение Экрана
+FRAME_RATE,Frame Rate,Частота Кадров
+VSYNC,Vertical Sync,Вертикальная Синронизация
+WINDOW,Window,Экран
+EXIT,Exit,Выход
+NO_LIMIT,No Limit,Без ограничений
+ON,On,Вкл
+OFF,Off,Выкл

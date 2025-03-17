@@ -1,6 +1,19 @@
 class_name RSettings
 extends Resource
 
+## Game
+const LANGUAGES: Dictionary[String,String] = {
+	"en" = "English", 
+	"ru" = "Русский"
+	}
+
+var _language: String = "en":
+	get():
+		return _language
+	set(value):
+		if(LANGUAGES.has(value)):
+			_language = value
+
 ## Sound
 var _master_sound_level: int = 75:
 	get():
@@ -50,6 +63,8 @@ var _frame_rate: int = 0:
 var _is_unlimited_frame_rate: bool = true
 var _is_vsync_on: bool = false
 
+var _is_first_launch: bool = false
+
 func _init() -> void:
 	set_master_to(_master_sound_level)
 	set_music_to(_sfx_sound_level)
@@ -58,7 +73,7 @@ func _init() -> void:
 	set_fullscreen(_is_full_screen)
 	set_frame_rate(_frame_rate,_is_unlimited_frame_rate)
 	set_vsync(_is_vsync_on)
-	
+	set_language(_language)
 
 func get_master_value() -> int:
 	return _master_sound_level
@@ -125,6 +140,18 @@ func set_fullscreen(state: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func get_language() -> String:
+	return _language
+
+func set_language(lang: String) -> void:
+	if(_is_first_launch and LANGUAGES.has(OS.get_locale_language())):
+		_language = OS.get_locale_language()
+	elif(_is_first_launch):
+		_language = "en"
+	elif(LANGUAGES.has(lang)):
+		_language = lang
+	TranslationServer.set_locale(_language)
 
 func _volume_to_db(volume: float) -> float:
 	if volume <= 0:

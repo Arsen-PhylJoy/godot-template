@@ -13,16 +13,16 @@ func init_toggle(toggle_name: String, state: bool) -> void:
 	_state_settings_label.text = toggle_name
 	_check_button.button_pressed = state
 	if(state):
-		_check_button.text = "On"
+		_check_button.text = "ON"
 	else:
-		_check_button.text = "Off"
+		_check_button.text = "OFF"
 
 func _connect_signals() -> void:
 	if _check_button.toggled.connect(_on_toggled): printerr("Fail: ",get_stack())
 
 func _on_toggled(state: bool) -> void:
 	if(state == true):
-		_check_button.text = "On"
+		_check_button.text = "ON"
 	else:
-		_check_button.text = "Off"
+		_check_button.text = "OFF"
 	state_changed.emit(state)

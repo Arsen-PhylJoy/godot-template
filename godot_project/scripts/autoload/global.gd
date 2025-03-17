@@ -2,12 +2,13 @@ class_name GlobalClass
 extends Node
 
 var settings: RSettings
-var settings_file_path: String = "user://settings.tres"
+var default_settings: RSettings = preload("uid://dl1cjvhumaiyu") as RSettings
+var settings_file_path: String = "user://template_godot/settings.tres"
 
 func _ready() -> void:
-	if(Engine.is_embedded_in_editor()):
-		settings = ResourceLoader.load("uid://dl1cjvhumaiyu") as RSettings
-	if(FileAccess.file_exists(settings_file_path)):
+	if(true):
+		settings = default_settings
+	elif(FileAccess.file_exists(settings_file_path)):
 		_load_settings_from_file()
 	else:
 		settings = ResourceLoader.load("uid://dl1cjvhumaiyu") as RSettings

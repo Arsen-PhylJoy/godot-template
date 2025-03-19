@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://36o0p33tb04a"]
+[gd_scene load_steps=3 format=3 uid="uid://36o0p33tb04a"]
 
 [ext_resource type="Script" uid="uid://bps65iiavgos6" path="res://scenes/settings/setting_windows/game_settings_ui.gd" id="1_b0bv2"]
+[ext_resource type="PackedScene" uid="uid://ixyqor8lxi3x" path="res://scenes/settings/primitives/options_settings_ui.tscn" id="2_im2kc"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -11,18 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b0bv2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="LanguageHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/LanguageHBoxContainer"]
-layout_mode = 2
-text = "LANGUAGE"
-
-[node name="LanguageOptionButton" type="OptionButton" parent="VBoxContainer/LanguageHBoxContainer"]
+[node name="OptionsSettingsUi" parent="." instance=ExtResource("2_im2kc")]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+options_name = "LANGUAGE"

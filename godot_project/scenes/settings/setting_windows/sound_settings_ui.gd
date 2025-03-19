@@ -2,14 +2,14 @@ class_name SoundSettingsUI
 extends Control
 
 @onready var settings: RSettings = Global.settings
-@onready var _master_slider: SliderSettings = %MasterSlider
-@onready var _sfx_slider: SliderSettings = %SFXSlider
-@onready var _music_slider: SliderSettings = %MusicSlider
+@onready var _master_slider: SliderSettingsUI = %MasterSlider
+@onready var _sfx_slider: SliderSettingsUI = %SFXSlider
+@onready var _music_slider: SliderSettingsUI = %MusicSlider
 
 func _ready() -> void:
-	_master_slider.init_slider("MASTER", settings.get_master_value())
-	_sfx_slider.init_slider("SOUND_EFFECTS", settings.get_sfx_value())
-	_music_slider.init_slider("MUSIC", settings.get_music_value())
+	_master_slider.init_slider(settings.master_sound_level)
+	_sfx_slider.init_slider(settings.sfx_sound_level)
+	_music_slider.init_slider(settings.music_sound_level)
 	_connect_signals()
 
 func _connect_signals() -> void:

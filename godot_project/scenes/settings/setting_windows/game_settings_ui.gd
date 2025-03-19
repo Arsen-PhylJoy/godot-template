@@ -2,27 +2,17 @@ class_name GameSettingsUI
 extends Control
 
 @onready var settings: RSettings = Global.settings
-@onready var _language_option_button: OptionButton = %LanguageOptionButton
-
+@onready var _options_settings_ui: OptionsSettingsUI = %OptionsSettingsUi
 
 func _ready() -> void:
 	_connect_signals()
 	_init_languages_list()
-	for i: int in _language_option_button.item_count:
-		if(_language_option_button.get_item_text(i) == settings.LANGUAGES.values()[i]):
-			print(str(_language_option_button.get_item_text(i)) + "==" + str(settings.LANGUAGES.values()[i]))
-			_language_option_button.select(i)
-			break
 
 func _connect_signals() -> void:
-	_language_option_button.item_selected.connect(_on_language_selected)
+	if _options_settings_ui.new_value_selected.connect(_on_language_selected): printerr("Fail: ",get_stack()) 
 
 func _init_languages_list() -> void:
-	for key: String in settings.LANGUAGES:
-		_language_option_button.add_item(settings.LANGUAGES[key])
+	_options_settings_ui.init_option_button(settings.LANGUAGES.keys(), settings.LANGUAGES.find_key(settings.language) as String)
 
-func _on_language_selected(item: int) -> void:
-	var language: String = _language_option_button.get_item_text(item)
-	for i: String in settings.LANGUAGES:
-		if(settings.LANGUAGES[i] == language):
-			settings.set_language(i)
+func _on_language_selected(value: String) -> void:
+	settings.set_language(settings.LANGUAGES[value])

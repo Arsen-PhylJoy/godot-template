@@ -3,18 +3,21 @@ extends Node
 
 var settings: RSettings
 var default_settings: RSettings = preload("uid://dl1cjvhumaiyu") as RSettings
-var settings_file_path: String = "user://template_godot/settings.tres"
+var settings_file_path: String = "user://"+ ProjectSettings.get_setting("application/config/name") +"/settings.tres"
 
 func _ready() -> void:
-	if(true):
-		settings = default_settings
-	elif(FileAccess.file_exists(settings_file_path)):
-		_load_settings_from_file()
-	else:
-		settings = ResourceLoader.load("uid://dl1cjvhumaiyu") as RSettings
+	_load_settings()
 	_connect_signals()
 
+func _load_settings() -> void:
+	if(OS.has_feature("debug")):
+		settings = default_settings
+	elif(FileAccess.file_exists(settings_file_path)):
+		print("loading settings")
+		_load_settings_from_file()
+
 func _connect_signals() -> void:
+	if settings.settings_changed.connect(_save_settings_to_file): printerr("Fail: ",get_stack())
 	if tree_exiting.connect(_on_exiting): printerr("Fail: ",get_stack())
 
 func _load_settings_from_file() -> void:
@@ -32,7 +35,8 @@ func _save_settings_to_file() -> void:
 		print("Settings saved!")
 		file.close()
 	else:
-		print("Failed to save settings.")
+		pass
+		#print("Failed to save settings: " + str(file.get_open_error()))
 
 func _on_exiting() -> void:
 	_save_settings_to_file()

@@ -12,7 +12,6 @@ config_version=5
 
 config/name="GodotTemplate"
 config/version="0.0.1"
-run/main_scene="uid://ldg2jq7gg87x"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://c5rmp24b5u7va"

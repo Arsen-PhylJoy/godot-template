@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func _connect_signals() -> void:
 	if settings.settings_changed.connect(_save_settings_to_file): printerr("Fail: ",get_stack())
-	if tree_exiting.connect(_on_exiting): printerr("Fail: ",get_stack())
 
 func _load_settings() -> void:
 	if(FileAccess.file_exists(settings_file_path)):
@@ -41,6 +40,3 @@ func _save_settings_to_file() -> void:
 		file.close()
 	else:
 		print("Failed to save settings: " + str(FileAccess.get_open_error()))
-
-func _on_exiting() -> void:
-	_save_settings_to_file()

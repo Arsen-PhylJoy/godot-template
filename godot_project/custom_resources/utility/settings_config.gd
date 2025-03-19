@@ -98,6 +98,9 @@ signal settings_changed()
 
 @export_storage var is_vsync_on: bool = false
 
+##Controls
+
+##Other
 @export_storage var is_first_launch: bool = true
 
 func _init() -> void:

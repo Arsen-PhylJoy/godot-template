@@ -2,26 +2,28 @@ class_name GlobalClass
 extends Node
 
 var settings: RSettings
-var default_settings: RSettings = preload("uid://dl1cjvhumaiyu") as RSettings
-var settings_file_path: String = "user://"+ ProjectSettings.get_setting("application/config/name") +"/settings.tres"
+var settings_file_path: String = "user://settings.tres"
 
 func _ready() -> void:
 	_load_settings()
+	settings.init()
 	_connect_signals()
-
-func _load_settings() -> void:
-	if(OS.has_feature("debug")):
-		settings = default_settings
-	elif(FileAccess.file_exists(settings_file_path)):
-		print("loading settings")
-		_load_settings_from_file()
 
 func _connect_signals() -> void:
 	if settings.settings_changed.connect(_save_settings_to_file): printerr("Fail: ",get_stack())
 	if tree_exiting.connect(_on_exiting): printerr("Fail: ",get_stack())
 
+func _load_settings() -> void:
+	if(FileAccess.file_exists(settings_file_path)):
+		print("loading settings")
+		_load_settings_from_file()
+	else:
+		print('Unavailable to find settings files. Load defaults.')
+		# Load default settings
+		settings = load("uid://dl1cjvhumaiyu") as RSettings
+
 func _load_settings_from_file() -> void:
-	var resource: Resource = load(settings_file_path)
+	var resource: Resource = ResourceLoader.load(settings_file_path, "RSettings",ResourceLoader.CACHE_MODE_REPLACE_DEEP)
 	if resource:
 		settings = resource as RSettings
 	else:
@@ -31,12 +33,14 @@ func _load_settings_from_file() -> void:
 func _save_settings_to_file() -> void:
 	var file: FileAccess = FileAccess.open(settings_file_path, FileAccess.WRITE)
 	if(file):
-		if ResourceSaver.save(settings, settings_file_path): printerr("Fail: ",get_stack()) 
-		print("Settings saved!")
+		var save_status: Error = ResourceSaver.save(settings, settings_file_path)
+		if(save_status == OK):
+			print("Settings saved!")
+		else:
+			print("Failed at saving: " + str(save_status))
 		file.close()
 	else:
-		pass
-		#print("Failed to save settings: " + str(file.get_open_error()))
+		print("Failed to save settings: " + str(FileAccess.get_open_error()))
 
 func _on_exiting() -> void:
 	_save_settings_to_file()

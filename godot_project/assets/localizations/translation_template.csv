@@ -15,3 +15,7 @@ EXIT,Exit,Выход
 NO_LIMIT,No Limit,Без ограничений
 ON,On,Вкл
 OFF,Off,Выкл
+CONTROLS,Controls,Управление
+RESET_CONTROLS,Reset Controls,Сбросить Управление
+KEYS,Key Configuration,Настройки Кнопок
+ENTER_NEW_KEY,Enter New Key,Нажмите Новую Кнопку

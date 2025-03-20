@@ -1,5 +1,5 @@
-# Godot Template
+# Minimal Godot Template
 ## Features
 - Static typing
-- Two busses "inherited" from master: Music and SFX
-- Singletones: EventBus, Global, SoundManager, SceneManager and its LoadingScreen scene
+- Default bus layout: Master, SFX and Music
+- Singletones: EventBus, Global

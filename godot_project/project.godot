@@ -11,14 +11,17 @@ config_version=5
 [application]
 
 config/name="GodotTemplate"
+config/version="0.0.0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+
+[audio]
+
+buses/default_bus_layout="res://godot_resources/default_bus_layout.tres"
 
 [autoload]
 
 EventBus="*res://scripts/autoload/event_bus.gd"
 Global="*res://scripts/autoload/global.gd"
-SoundManager="*res://scripts/autoload/sound_manager.gd"
-SceneManager="*res://scripts/autoload/scene_manager.gd"
 
 [debug]
 

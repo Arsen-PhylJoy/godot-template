@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cohscvcbckpo0" path="res://scenes/settings/setting_windows/controls_settings_ui.tscn" id="3_vktl3"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_av8nu")
 
 [node name="SettingsWindows" type="TabContainer" parent="."]

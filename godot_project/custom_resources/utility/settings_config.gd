@@ -4,6 +4,7 @@ extends Resource
 signal settings_changed()
 
 ## Game
+
 @export_storage var LANGUAGES: Dictionary[String,String] = {
 	"English" = "en", 
 	"Русский" = "ru"
@@ -20,6 +21,7 @@ signal settings_changed()
 		language = value
 
 ## Sound
+
 @export_storage var master_sound_level: int = 75:
 	get():
 		return master_sound_level
@@ -100,16 +102,19 @@ signal settings_changed()
 
 ##Controls
 
+@export_storage var default_action_map: Dictionary[String,InputEvent] ={}
+
+@export_storage var action_map: Dictionary[String,InputEvent] ={}
+
 ##Other
 @export_storage var is_first_launch: bool = true
 
-func _init() -> void:
-	init()
-
 func init() -> void:
+	## Audio
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), _volume_to_db(master_sound_level))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), _volume_to_db(sfx_sound_level))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), _volume_to_db(music_sound_level))
+	## Graphic
 	Engine.max_fps = frame_rate
 	DisplayServer.window_set_size(resolution)
 	DisplayServer.window_set_position(Vector2(0,0))
@@ -121,7 +126,10 @@ func init() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	## Translations
 	TranslationServer.set_locale(language)
+	## Controls
+	_init_input_map()
 
 func set_master_to(value: int) -> void:
 	master_sound_level = value
@@ -178,6 +186,21 @@ func set_language(lang: String) -> void:
 	TranslationServer.set_locale(language)
 	settings_changed.emit()
 
+func change_action_map(action: String, event: InputEvent) -> void:
+	action_map[action] = event
+	InputMap.action_erase_events(action)
+	InputMap.action_add_event(action,action_map[action])
+	settings_changed.emit()
+	_print_mappings()
+
+func default_keys_controls() -> void:
+	action_map = default_action_map.duplicate()
+	for action: String in action_map:
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action,action_map[action])
+	settings_changed.emit()
+	_print_mappings()
+
 func _volume_to_db(volume: float) -> float:
 	if volume <= 0:
 		return -80
@@ -187,3 +210,36 @@ func _db_to_volume(db: float) -> float:
 	if db <= -80:
 		return 0
 	return 100 * pow(10, db / 20.0)
+
+## format: "move_forward" = "A (Physical)"
+func _get_user_defined_actions() -> Dictionary[String,InputEvent]:
+	var out: Dictionary[String,InputEvent]
+	for action: String in InputMap.get_actions():
+		if(action.substr(0,2) != "ui"):
+			out.set(action, InputMap.action_get_events(action)[0])
+	return out
+
+func _init_input_map() -> void:
+	default_action_map = _get_user_defined_actions().duplicate()
+	if(is_first_launch):
+		action_map = default_action_map.duplicate()
+		is_first_launch = false
+	else:
+		for action: String in action_map:
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action,action_map[action])
+	_print_mappings()
+
+func _print_mappings() -> void:
+	print("Defaults")
+	for action: String in default_action_map:
+		print(action + " is " + default_action_map[action].as_text())
+	print("----------------")
+	print("Actuals")
+	for action: String in action_map:
+		print(action + " is " + action_map[action].as_text())
+	print("----------------")
+	print("InputMap")
+	for action: String in InputMap.get_actions():
+		if(action.substr(0,2) != "ui"):
+			print(action + " is " + InputMap.action_get_events(action)[0].as_text())

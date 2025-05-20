@@ -16,4 +16,5 @@ func _connect_signals() -> void:
 func _on_pressed_exited() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = _prev_mouse_capture_mode
+	get_tree().quit(0)
 	queue_free()

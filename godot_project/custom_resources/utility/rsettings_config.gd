@@ -191,7 +191,7 @@ func change_action_map(action: String, event: InputEvent) -> void:
 	InputMap.action_erase_events(action)
 	InputMap.action_add_event(action,action_map[action])
 	settings_changed.emit()
-	_print_mappings()
+	__print_mappings()
 
 func default_keys_controls() -> void:
 	action_map = default_action_map.duplicate()
@@ -199,7 +199,7 @@ func default_keys_controls() -> void:
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action,action_map[action])
 	settings_changed.emit()
-	_print_mappings()
+	__print_mappings()
 
 func _volume_to_db(volume: float) -> float:
 	if volume <= 0:
@@ -211,7 +211,6 @@ func _db_to_volume(db: float) -> float:
 		return 0
 	return 100 * pow(10, db / 20.0)
 
-## format: "move_forward" = "A (Physical)"
 func _get_user_defined_actions() -> Dictionary[String,InputEvent]:
 	var out: Dictionary[String,InputEvent]
 	for action: String in InputMap.get_actions():
@@ -226,11 +225,17 @@ func _init_input_map() -> void:
 		is_first_launch = false
 	else:
 		for action: String in action_map:
+			if(!InputMap.has_action(action)):
+				InputMap.add_action(action)
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action,action_map[action])
-	_print_mappings()
+		for action: String in InputMap.get_actions():
+			if(!action_map.has(action) and action.substr(0,2) != "ui"):
+				action_map.set(action,InputMap.action_get_events(action)[0])
+				default_action_map.set(action,InputMap.action_get_events(action)[0])
+	__print_mappings()
 
-func _print_mappings() -> void:
+func __print_mappings() -> void:
 	print("Defaults")
 	for action: String in default_action_map:
 		print(action + " is " + default_action_map[action].as_text())

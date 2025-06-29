@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bnpsg51lobaok"
+
+[deps]
+
+files=["res://assets/localizations/translation_template.nm.translation", "res://assets/localizations/translation_template.en.translation", "res://assets/localizations/translation_template.ru.translation", "res://assets/localizations/translation_template.nml.translation"]
+
+source_file="res://assets/localizations/translation_template.csv"
+dest_files=["res://assets/localizations/translation_template.nm.translation", "res://assets/localizations/translation_template.en.translation", "res://assets/localizations/translation_template.ru.translation", "res://assets/localizations/translation_template.nml.translation"]
+
+[params]
+
+compress=true
+delimiter=0

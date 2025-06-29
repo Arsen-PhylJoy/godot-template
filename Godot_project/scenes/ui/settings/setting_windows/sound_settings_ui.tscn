@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0dqam4dmmdh4"]
+
+[ext_resource type="Script" uid="uid://0f875f3d1fs7" path="res://scenes/ui/settings/setting_windows/sound_settings_ui.gd" id="1_dv7wy"]
+[ext_resource type="PackedScene" uid="uid://diu4xp1co5afm" path="res://scenes/ui/settings/primitives/slider_settings_ui.tscn" id="2_jq8nx"]
+
+[node name="SoundSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dv7wy")
+
+[node name="SoundSettingsVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterSlider" parent="SoundSettingsVBoxContainer" instance=ExtResource("2_jq8nx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+slider_name = "MASTER"
+
+[node name="SFXSlider" parent="SoundSettingsVBoxContainer" instance=ExtResource("2_jq8nx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+slider_name = "SOUND_EFFECTS"
+
+[node name="MusicSlider" parent="SoundSettingsVBoxContainer" instance=ExtResource("2_jq8nx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+slider_name = "MUSIC"

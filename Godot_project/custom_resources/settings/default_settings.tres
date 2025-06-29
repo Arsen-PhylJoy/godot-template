@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="RSettings" load_steps=2 format=3 uid="uid://dl1cjvhumaiyu"]
+
+[ext_resource type="Script" uid="uid://don5jnahn303" path="res://custom_resources/settings/rsettings_config.gd" id="1_rga4q"]
+
+[resource]
+script = ExtResource("1_rga4q")
+LANGUAGES = Dictionary[String, String]({
+"English": "en",
+"Русский": "ru"
+})
+language = "en"
+master_sound_level = 75
+sfx_sound_level = 75
+music_sound_level = 75
+RESOLUTIONS = Dictionary[String, Vector2]({
+"1280×720": Vector2(1280, 720),
+"1366×768": Vector2(1366, 768),
+"1600×900": Vector2(1600, 900),
+"1920×1080": Vector2(1920, 1080),
+"2560×1080": Vector2(2560, 1080),
+"2560×1440": Vector2(2560, 1440),
+"3200×1800": Vector2(3200, 1800),
+"3440×1440": Vector2(3440, 1440),
+"3840×2160": Vector2(3840, 2160),
+"5120×1440": Vector2(5120, 1440)
+})
+resolution = Vector2(1920, 1080)
+is_full_screen = false
+FRAME_RATES = Dictionary[String, int]({
+"120": 120,
+"144": 144,
+"244": 244,
+"30": 30,
+"60": 60,
+"75": 75,
+"NO_LIMIT": 0
+})
+frame_rate = 0
+is_vsync_on = false
+default_action_map = Dictionary[String, InputEvent]({})
+action_map = Dictionary[String, InputEvent]({})
+is_first_launch = true
+metadata/_custom_type_script = "uid://don5jnahn303"

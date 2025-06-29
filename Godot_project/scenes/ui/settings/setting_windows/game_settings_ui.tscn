@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://36o0p33tb04a"]
+
+[ext_resource type="Script" uid="uid://bps65iiavgos6" path="res://scenes/ui/settings/setting_windows/game_settings_ui.gd" id="1_b0bv2"]
+[ext_resource type="PackedScene" uid="uid://ixyqor8lxi3x" path="res://scenes/ui/settings/primitives/options_settings_ui.tscn" id="2_im2kc"]
+[ext_resource type="Theme" uid="uid://ckmc2uhafvgvk" path="res://_not_for_export/test_assets/ui_theme_resources/button.tres" id="3_apb86"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0bv2")
+
+[node name="OptionsSettingsUi" parent="." instance=ExtResource("2_im2kc")]
+unique_name_in_owner = true
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 60.0
+offset_bottom = 60.0
+options_name = "LANGUAGE"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.352
+anchor_right = 0.364
+anchor_bottom = 0.761
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_apb86")
+text = "Start_Game"
+
+[node name="EndGame" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_apb86")
+text = "End_Game"

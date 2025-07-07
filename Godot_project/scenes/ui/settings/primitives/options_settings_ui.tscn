@@ -20,7 +20,7 @@ offset_bottom = 40.0
 [node name="OptionsLabel" type="Label" parent="OptionsHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Language"
+text = "__name"
 
 [node name="OptionButton" type="OptionButton" parent="OptionsHBoxContainer"]
 unique_name_in_owner = true

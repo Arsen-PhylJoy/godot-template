@@ -6,7 +6,6 @@ extends Control
 @onready var start_game: Button = %StartGame
 @onready var end_game: Button = %EndGame
 
-
 func _ready() -> void:
 	_connect_signals()
 	_init_languages_list()

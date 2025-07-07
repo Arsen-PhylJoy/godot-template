@@ -1,0 +1,342 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpogarfjr8ys4"]
+
+[ext_resource type="Script" uid="uid://2e4elt4khhck" path="res://addons/WebBusPlugin/Demo/Demo.gd" id="1_so7c8"]
+[ext_resource type="AudioStream" uid="uid://kperu0kstmja" path="res://addons/WebBusPlugin/Demo/good-night-lofi-cozy-chill-music-160166.mp3" id="2_bh7q7"]
+
+[node name="Demo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_so7c8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="General" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Show_ad" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Show_ad	"
+
+[node name="Show_reward_ad" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Show_reward_ad"
+
+[node name="show_banner" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "show_banner"
+
+[node name="hide_banner" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "hide_banner"
+
+[node name="get_language" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "get_language"
+
+[node name="get_type_device" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "get_type_device"
+
+[node name="start_gameplay" type="Button" parent="VBoxContainer/General"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "start_gameplay"
+
+[node name="stop_gameplay" type="Button" parent="VBoxContainer/General"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "stop_gameplay"
+
+[node name="ready" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "ready"
+
+[node name="get_platform" type="Button" parent="VBoxContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "get_platform"
+
+[node name="Invite" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Invite"]
+layout_mode = 2
+
+[node name="invite_link" type="Button" parent="VBoxContainer/Invite/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "invite_link"
+
+[node name="key" type="LineEdit" parent="VBoxContainer/Invite/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "key"
+
+[node name="value" type="LineEdit" parent="VBoxContainer/Invite/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "value"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Invite"]
+layout_mode = 2
+
+[node name="get_invite_param" type="Button" parent="VBoxContainer/Invite/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "get_invite_param"
+
+[node name="key" type="LineEdit" parent="VBoxContainer/Invite/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "key"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Invite"]
+layout_mode = 2
+
+[node name="show_invite_button" type="Button" parent="VBoxContainer/Invite/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "show_invite_button"
+
+[node name="hide_invite_button" type="Button" parent="VBoxContainer/Invite/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "hide_invite_button"
+
+[node name="Crazy" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+columns = 3
+
+[node name="happytime" type="Button" parent="VBoxContainer/Crazy"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "happytime"
+
+[node name="start_loading" type="Button" parent="VBoxContainer/Crazy"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "start_loading"
+
+[node name="Yandex" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.55
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="get_yandex_leaderboard_info" type="Button" parent="VBoxContainer/Yandex/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "get_leaderboard_info"
+
+[node name="leaderboard" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "leaderboard name:String"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="get_yandex_leaderboard_player_entry" type="Button" parent="VBoxContainer/Yandex/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "get_leaderboard_player_entry"
+
+[node name="leaderboard" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "leaderboard name:String"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="get_yandex_leaderboard_entries" type="Button" parent="VBoxContainer/Yandex/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "get_leaderboard_entries"
+
+[node name="leaderboard" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "leaderboard name:String"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="set_yandex_leaderboard" type="Button" parent="VBoxContainer/Yandex/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "set_leaderboard_score"
+
+[node name="leaderboard" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "leaderboard name:String"
+
+[node name="score" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "score:int"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="init payments" type="Button" parent="VBoxContainer/Yandex/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "init payments"
+
+[node name="signed" type="CheckBox" parent="VBoxContainer/Yandex/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Signed
+"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="purchase" type="Button" parent="VBoxContainer/Yandex/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "purchase"
+
+[node name="id_String" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "id:String"
+
+[node name="developer_payload_String" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "developer_payload:String"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="get_purchases" type="Button" parent="VBoxContainer/Yandex/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "get_purchases"
+
+[node name="get_catalog" type="Button" parent="VBoxContainer/Yandex/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "get_catalog"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="consume_purchase" type="Button" parent="VBoxContainer/Yandex/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "consume_purchase"
+
+[node name="token" type="TextEdit" parent="VBoxContainer/Yandex/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "token:String"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer/Yandex"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="can_rewiew" type="Button" parent="VBoxContainer/Yandex/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "can_rewiew"
+
+[node name="request_review" type="Button" parent="VBoxContainer/Yandex/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "request_review"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bh7q7")
+volume_db = -24.705
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/General/Show_ad" to="." method="_on_show_ad_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/Show_reward_ad" to="." method="_on_show_reward_ad_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/show_banner" to="." method="_on_show_banner_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/hide_banner" to="." method="_on_hide_banner_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/get_language" to="." method="_on_get_language_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/get_type_device" to="." method="_on_get_type_device_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/start_gameplay" to="." method="_on_start_gameplay_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/stop_gameplay" to="." method="_on_stop_gameplay_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/ready" to="." method="_on_ready_pressed"]
+[connection signal="pressed" from="VBoxContainer/General/get_platform" to="." method="_on_get_platform_pressed"]
+[connection signal="pressed" from="VBoxContainer/Invite/HBoxContainer/invite_link" to="." method="_on_invite_link_pressed"]
+[connection signal="pressed" from="VBoxContainer/Invite/HBoxContainer2/get_invite_param" to="." method="_on_get_invite_param_pressed"]
+[connection signal="pressed" from="VBoxContainer/Invite/HBoxContainer3/show_invite_button" to="." method="_on_show_invite_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Invite/HBoxContainer3/hide_invite_button" to="." method="_on_hide_invite_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Crazy/happytime" to="." method="_on_happytime_pressed"]
+[connection signal="pressed" from="VBoxContainer/Crazy/start_loading" to="." method="_on_start_loading_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer/get_yandex_leaderboard_info" to="." method="_on_get_yandex_leaderboard_info_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer3/get_yandex_leaderboard_player_entry" to="." method="_on_get_yandex_leaderboard_player_entry_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer4/get_yandex_leaderboard_entries" to="." method="_on_get_yandex_leaderboard_entries_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer2/set_yandex_leaderboard" to="." method="_on_set_yandex_leaderboard_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer5/init payments" to="." method="_on_init_payments_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer6/purchase" to="." method="_on_purchase_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer7/get_purchases" to="." method="_on_get_purchases_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer7/get_catalog" to="." method="_on_get_catalog_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer9/consume_purchase" to="." method="_on_consume_purchase_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer8/can_rewiew" to="." method="_on_can_rewiew_pressed"]
+[connection signal="pressed" from="VBoxContainer/Yandex/HBoxContainer8/request_review" to="." method="_on_request_review_pressed"]

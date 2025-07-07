@@ -1,0 +1,169 @@
+[gd_scene load_steps=2 format=3 uid="uid://dadbpx8g75c15"]
+
+[ext_resource type="Script" uid="uid://dw5jc5w3qr13k" path="res://addons/WebBusPlugin/main_screen_scene.gd" id="1_lnuwk"]
+
+[node name="MainScreenScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_lnuwk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 419.0
+offset_bottom = 244.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CrazyBannerSize" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerSize"]
+layout_mode = 2
+text = "Crazy Games banner size: "
+
+[node name="crazy_banner_w" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerSize"]
+layout_mode = 2
+selected = 10
+fit_to_longest_item = false
+item_count = 13
+popup/item_0/text = "120px"
+popup/item_0/id = 0
+popup/item_1/text = "160px"
+popup/item_1/id = 1
+popup/item_2/text = "250px"
+popup/item_2/id = 2
+popup/item_3/text = "300px"
+popup/item_3/id = 3
+popup/item_4/text = "320px"
+popup/item_4/id = 4
+popup/item_5/text = "336px"
+popup/item_5/id = 5
+popup/item_6/text = "468px"
+popup/item_6/id = 6
+popup/item_7/text = "728px"
+popup/item_7/id = 7
+popup/item_8/text = "970px"
+popup/item_8/id = 8
+popup/item_9/text = "25%"
+popup/item_9/id = 9
+popup/item_10/text = "50%"
+popup/item_10/id = 10
+popup/item_11/text = "75%"
+popup/item_11/id = 11
+popup/item_12/text = "100%"
+popup/item_12/id = 12
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerSize"]
+layout_mode = 2
+text = "x"
+
+[node name="crazy_banner_h" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerSize"]
+layout_mode = 2
+selected = 9
+fit_to_longest_item = false
+item_count = 10
+popup/item_0/text = "50px"
+popup/item_0/id = 0
+popup/item_1/text = "60px"
+popup/item_1/id = 1
+popup/item_2/text = "90px"
+popup/item_2/id = 2
+popup/item_3/text = "250px"
+popup/item_3/id = 3
+popup/item_4/text = "280px"
+popup/item_4/id = 4
+popup/item_5/text = "600px"
+popup/item_5/id = 5
+popup/item_6/text = "25%"
+popup/item_6/id = 9
+popup/item_7/text = "50%"
+popup/item_7/id = 10
+popup/item_8/text = "75%"
+popup/item_8/id = 11
+popup/item_9/text = "100%"
+popup/item_9/id = 12
+
+[node name="CrazyBannerPos" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerPos"]
+layout_mode = 2
+text = "Crazy Games banner position: "
+
+[node name="crazy_banner_pos" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerPos"]
+layout_mode = 2
+selected = 1
+item_count = 4
+popup/item_0/text = "bottom"
+popup/item_0/id = 0
+popup/item_1/text = "top"
+popup/item_1/id = 1
+popup/item_2/text = "left"
+popup/item_2/id = 2
+popup/item_3/text = "right"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(368, 179)
+layout_mode = 2
+size_flags_vertical = 1
+text = "The responsive banners feature will request ads that fit into your container, without the need to specify or select a size beforehand. The resulting banners will have one of the following sizes: 970x90, 320x50, 160x600, 336x280, 728x90, 300x600, 468x60, 970x250, 300x250, 250x250 and 120x600."
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+text = "Update
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Is archive build: "
+
+[node name="Is Archive" type="CheckBox" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+button_pressed = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Archive name:"
+
+[node name="yandex_archive_name" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "export.zip"
+placeholder_text = "you_archive_name.zip"
+max_length = 30
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Ensure that your export folder does not contain any external files."
+
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerSize/crazy_banner_w" to="." method="_on_crazy_banner_w_item_selected"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerSize/crazy_banner_h" to="." method="_on_crazy_banner_h_item_selected"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/VBoxContainer/CrazyBannerPos/crazy_banner_pos" to="." method="_on_crazy_banner_pos_item_selected"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/Is Archive" to="." method="_on_is_archive_toggled"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/yandex_archive_name" to="." method="_on_yandex_archive_name_text_changed"]

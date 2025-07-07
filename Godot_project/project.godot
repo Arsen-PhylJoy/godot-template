@@ -27,6 +27,7 @@ buses/default_bus_layout="res://custom_resources/utility/default_bus_layout.tres
 EventBus="*res://globals/scripts/event_bus.gd"
 Global="*res://globals/scripts/global.gd"
 SceneManager="*res://globals/scripts/scene_manager.gd"
+WebBus="*res://addons/WebBusPlugin/WebBus.gd"
 
 [debug]
 
@@ -46,7 +47,7 @@ naming/script_name_casing=2
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/WebBusPlugin/plugin.cfg")
 
 [file_customization]
 

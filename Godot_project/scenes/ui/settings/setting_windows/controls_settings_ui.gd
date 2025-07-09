@@ -1,7 +1,7 @@
 class_name ControlSettingsUI
 extends Control
 
-@onready var settings: RSettings = Global.settings
+@onready var settings: RSettings = GlobalGame.settings
 
 @onready var _actions_list: VBoxContainer = %ActionsList
 @onready var _action_button_ps: PackedScene = preload("uid://4x5efccvwadl")

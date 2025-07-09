@@ -1,7 +1,7 @@
 class_name SoundSettingsUI
 extends Control
 
-@onready var settings: RSettings = Global.settings
+@onready var settings: RSettings = GlobalGame.settings
 @onready var _master_slider: SliderSettingsUI = %MasterSlider
 @onready var _sfx_slider: SliderSettingsUI = %SFXSlider
 @onready var _music_slider: SliderSettingsUI = %MusicSlider

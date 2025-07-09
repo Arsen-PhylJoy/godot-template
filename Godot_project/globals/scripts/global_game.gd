@@ -1,16 +1,21 @@
-class_name GlobalClass
+class_name GlobalGameClass
 extends Node
 
 var settings: RSettings
 var settings_file_path: String = "user://settings.tres"
 
 func _ready() -> void:
+	_init_sdk()
 	_load_settings()
 	settings.init()
 	_connect_signals()
 
+func _init_sdk() -> void:
+	print("initted")
+
 func _connect_signals() -> void:
 	if settings.settings_changed.connect(_save_settings_to_file): printerr("Fail: ",get_stack())
+	if WebBus.inited.connect(_init_sdk): printerr("Fail: ",get_stack())
 
 func _load_settings() -> void:
 	if(FileAccess.file_exists(settings_file_path)):

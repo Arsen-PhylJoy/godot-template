@@ -1,7 +1,7 @@
 class_name GraphicSettingsUI
 extends Control
 
-@onready var settings: RSettings = Global.settings
+@onready var settings: RSettings = GlobalGame.settings
 
 @onready var _frames_options_settings_ui: OptionsSettingsUI = %FramesOptionsSettingsUi
 

@@ -18,7 +18,7 @@ func  _ready() -> void:
 func _connect_signals() -> void:
 	for action_button: ActionButtonUI in _actions_list.get_children():
 		if action_button.action_button_mapped.connect(_on_action_button_pressed): printerr("Fail: ",get_stack())
-	_reset_button.pressed.connect(_on_reset_pressed)
+	if _reset_button.pressed.connect(_on_reset_pressed): printerr("Fail: ",get_stack())
 
 func _on_action_button_pressed(action: String, event: InputEvent) -> void:
 	settings.change_action_map(action, event)

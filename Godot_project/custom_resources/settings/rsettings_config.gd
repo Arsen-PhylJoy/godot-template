@@ -111,6 +111,7 @@ signal settings_changed()
 
 func init() -> void:
 	## Audio
+	AudioServer.set_bus_layout(preload("uid://bb2hyi8awjb7h"))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), _volume_to_db(master_sound_level))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), _volume_to_db(sfx_sound_level))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), _volume_to_db(music_sound_level))
@@ -233,7 +234,6 @@ func _init_input_map() -> void:
 			if(!action_map.has(action) and action.substr(0,2) != "ui"):
 				action_map.set(action,InputMap.action_get_events(action)[0])
 				default_action_map.set(action,InputMap.action_get_events(action)[0])
-	__print_mappings()
 
 func __print_mappings() -> void:
 	print("Defaults")

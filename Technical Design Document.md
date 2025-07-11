@@ -1,34 +1,36 @@
-### GDScript Code Style Guidelines (ver 0.0.1) {#StyleGuidelines}
-#### 0. Code Style Guidelines Content {#Vocabular}
-[1. Vocabular](#Vocabular)
-[2. Code Order](#CodeOrder)
-[&nbsp;&nbsp;&nbsp;&nbsp;2.1. Private-Order](#PrivateOrder)
-[3. Formatting](#Formatting)
-[&nbsp;&nbsp;&nbsp;&nbsp;3.1 Indentation](#Indentation)
-[&nbsp;&nbsp;&nbsp;&nbsp;3.2 Blank Lines](#BlankLines)
-[&nbsp;&nbsp;&nbsp;&nbsp;3.3 Line Length](#LineLength)
-[&nbsp;&nbsp;&nbsp;&nbsp;3.4 Format multiline statements for readability](#Formatmultilinestatementsforreadability)
-[&nbsp;&nbsp;&nbsp;&nbsp;3.5 Use parentheses for conditional statements ](#Useparenthesesforconditionalstatements)
-[&nbsp;&nbsp;&nbsp;&nbsp;3.6 Boolean operators ](#Booleanoperators)
-[&nbsp;&nbsp;&nbsp;&nbsp;3.7 Whitespace](#Whitespace)
-[4. Naming conventions](#Namingconventions)
-[&nbsp;&nbsp;&nbsp;&nbsp;4.1 Formatting names](#Formattingnames)
-[&nbsp;&nbsp;&nbsp;&nbsp;4.2 File names and their location](#Filenamesandtheirlocation)
-[&nbsp;&nbsp;&nbsp;&nbsp;4.3 Variable names](#Variablenames)
-[&nbsp;&nbsp;&nbsp;&nbsp;4.4 Class names](#Classnames)
-[&nbsp;&nbsp;&nbsp;&nbsp;4.5 Function names](#Functionnames)
-[&nbsp;&nbsp;&nbsp;&nbsp;4.6 Signals and signal handles](#Signalsandsignalhandles)
+# GDScript Code Style Guidelines (ver 0.0.1)
+### 0. Code Style Guidelines Content
+[1. Vocabular](#1-vocabular)</br> 
+[2. Code Order](#2-code-order)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;2.1. Private Order](#21-private-order)</br>
+[3. Formatting](#3-formatting)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;3.1 Indentation](#31-indentation)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;3.2 Blank Lines](#32-blank-lines)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;3.3 Line Length](#33-line-length)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;3.4 Format multiline statements for readability](#34-format-multiline-statements-for-readability)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;3.5 Use parentheses for conditional statements ](#35-use-parentheses-for-conditional-statements)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;3.6 Boolean operators ](#36-boolean-operators)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;3.7 Whitespace](#37-whitespace)</br>
+[4. Naming conventions](#4-naming-conventions)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;4.1 Formatting names](#41-formatting-names)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;4.2 File names and their location](#42-file-names-and-their-location)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;4.3 Variable names](#43-variable-names)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;4.4 Class names](#44-class-names)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;4.5 Function names](#45-function-names)</br>
+[5 Do not!](#5-do-not)</br>
+[&nbsp;&nbsp;&nbsp;&nbsp;5.1 UI Coding](#51-ui-coding)</br>
 
-#### 1. Vocabular {#Vocabular}
+### 1. Vocabular
 
-###### [Private](#Private)  - is conventional modifier for a function, a variable, a signal that says "This data/behavior can be used within ONLY this class". It helps to preserve an invariant of a class and adhere to Encapsulation OOP principle. In order to distinguish between private and public entities, use underscore "_".  {#Private}
+###### Private
+Private is conventional modifier for a function, a variable, a signal that says "This data/behavior can be used within ONLY this class". It helps to preserve an invariant of a class and adhere to Encapsulation OOP principle. In order to distinguish between private and public entities, use underscore "_". 
 
 
 **For example:**
 
     _speed_state: bool
 
-#### 2. Code order {#CodeOrder}
+### 2. Code order
     01. @tool, @icon, @static_unload
     02. class_name
     03. extends
@@ -54,7 +56,7 @@
     15. overridden custom methods
     16. remaining methods
     17. subclasses
-##### 2.1 [Private](#Private) Order {#PrivateOrder}
+##### 2.1 Private Order
 You should declare/define private variables first. For example:
 
     @export exported_variable: int = 2
@@ -68,9 +70,9 @@ You should declare/define private variables first. For example:
 
     var public_one: int = 49
 Same for 15. overridden custom methods and 16. remaining methods.
-#### 3. Formatting {#Formatting}
+### 3. Formatting
 ----
-##### 3.1 Indentation {#Indentation}
+##### 3.1 Indentation
 Each indent level should be one greater than the block containing it.
 
 ✅
@@ -139,7 +141,7 @@ Each indent level should be one greater than the block containing it.
             TELEPORT,
     }
 ----
-##### 3.2 Blank Lines {#BlankLines}
+##### 3.2 Blank Lines
 Surround functions and class definitions with ~~two~~ **ONE** blank line~~s~~:
 
         func heal(amount):
@@ -152,11 +154,11 @@ Surround functions and class definitions with ~~two~~ **ONE** blank line~~s~~:
             health = max(0, health)
             health_changed.emit(health)
 ----
-##### 3.3 Line Length {#LineLength}
+##### 3.3 Line Length
 Keep individual lines of code under 100 characters. If you can try to keep lines under 80 characters. This helps to read the code on small displays and with two scripts opened side-by-side in an external text editor. For example, when looking at a differential revision.
 
 ----
-##### 3.4 Format multiline statements for readability {#Formatmultilinestatementsforreadability}
+##### 3.4 Format multiline statements for readability
 When you have particularly long if statements or nested ternary expressions, wrapping them over multiple lines improves readability. Since continuation lines are still part of the same expression, 2 indent levels should be used instead of one.
 
 ✅
@@ -184,7 +186,7 @@ When you have particularly long if statements or nested ternary expressions, wra
     if position.x > 200 and position.x < 400 and position.y > 300 and position.y < 400:
         pass
 ----
-##### 3.5 Use parentheses for conditional statements {#Useparenthesesforconditionalstatements}
+##### 3.5 Use parentheses for conditional statements
 
 ✅
 
@@ -195,7 +197,7 @@ When you have particularly long if statements or nested ternary expressions, wra
     if is_colliding():
         queue_free()
 ---- 
-##### 3.6 Boolean operators {#Booleanoperators}
+##### 3.6 Boolean operators
 Prefer the plain English versions of boolean operators, as they are the most accessible:
 
     - Use and instead of &&.
@@ -212,7 +214,7 @@ You may also use parentheses around boolean operators to clear any ambiguity. Th
     if foo && bar || !baz:
         print("condition is true")
 ---- 
-##### 3.7 Whitespace {#Whitespace}
+##### 3.7 Whitespace
 Always use one space around operators and after commas. Also, avoid extra spaces in dictionary references and function calls. One exception to this is for single-line dictionary declarations, where a space should be added after the opening brace and before the closing brace. This makes the dictionary easier to visually distinguish from an array, as the [] characters look close to {} with most fonts.
 
 ✅
@@ -231,8 +233,8 @@ Always use one space around operators and after commas. Also, avoid extra spaces
     myarray = [4,5,6]
     my_dictionary = {key = "value"}
     print ("foo")
-#### 4. Naming conventions {#Namingconventions}
-##### 4.1 Formatting names {#Formattingnames}
+### 4. Naming conventions
+##### 4.1 Formatting names
 These naming conventions follow the Godot Engine style. Breaking these will make your code clash with the built-in naming conventions, leading to inconsistent code. As a summary table:
 | Type      | Convention |   Example  |
 | ----------- | ----------- | -----------|
@@ -245,7 +247,7 @@ These naming conventions follow the Godot Engine style. Breaking these will make
 | Constants   | CONSTANT_CASE        |     const MAX_SPEED: int = 420       |
 | Enum names   | PascalCase        |        enum EnemyState    |
 | Enum members   | CONSTANT_CASE        |      {HOSTILE, CALM, PATROL}      |
-#### 4.2 File names and their location{#Filenamesandtheirlocation}
+#### 4.2 File names and their location
 Use snake_case for file names. For named classes, convert the PascalCase class name to snake_case:
 
     # This file should be saved as `weapon.gd`.
@@ -259,18 +261,18 @@ Use snake_case for file names. For named classes, convert the PascalCase class n
 
 Scripts that are statically connected to a scene should be in the same folder as the scene.
 
-#### 4.3 Variable names {#Variablenames}
+#### 4.3 Variable names
 - Use **nouns** for variables.
 - Use **is_...** template for bollean variables.
 - Use unique ID for loading assets like PackedScene, CompressedTexture2D and etc:
 
         @onready var _action_button_ps: PackedScene = preload("uid://4x5efccvwadl")
 - Try to express an intention behind a variable by naming it.
-#### 4.4 Class names {#Classnames}
+#### 4.4 Class names
 - Class names and object must be **nouns**.
-#### 4.5 Function names {#Functionnames}
+#### 4.5 Function names
 - Functon names must be **verbs or verb phrases**.
-#### 4.6 Signals and signal handles {#Signalsandsignalhandles}
+#### 4.6 Signals and signal handles
 - Signals should be **verbs in past tense**.
 - Signal handles should have this name structure — **_on_signal_name**
 - You should connect signals with this method:
@@ -278,4 +280,7 @@ Scripts that are statically connected to a scene should be in the same folder as
 if Object.signal.connect(_on_signal_name): printerr("Fail: ",get_stack()) 
 
     if _options_settings_ui.new_value_selected.connec (_on_language_selected): printerr("Fail: ",get_stack()) 
-#### 5 Pr
+### 5 Do not!
+#### 5.1 UI coding
+- Do not connect signals via UI Editor
+- Do not assign nodes to groups via UI Editor

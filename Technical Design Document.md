@@ -1,4 +1,7 @@
-# GDScript Code Style Guidelines (ver 0.0.1)
+# Technical Design document - (version 0.2.0)
+[1. GDScript-Code-Style-Guidelines-(ver-0.0.2)](#gdscript-code-style-guidelines)</br> 
+[2. Patterns with working with the Godot editor](#patterns-with-working-with-the-godot-editor)</br>
+## GDScript Code Style Guidelines
 ### 0. Code Style Guidelines Content
 [1. Vocabular](#1-vocabular)</br> 
 [2. Code Order](#2-code-order)</br>
@@ -284,3 +287,9 @@ if Object.signal.connect(_on_signal_name): printerr("Fail: ",get_stack())
 #### 5.1 UI coding
 - Do not connect signals via UI Editor
 - Do not assign nodes to groups via UI Editor
+
+## Patterns with working with the Godot editor
+1. Use unique names when referencing to scene's nodes in a script.
+![alt text](image.png)
+2. Use UID when referencing to a resource.
+![ ](image-1.png)![alt text](image-2.png)

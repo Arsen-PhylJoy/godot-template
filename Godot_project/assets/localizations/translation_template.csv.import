@@ -15,5 +15,3 @@ dest_files=["res://assets/localizations/translation_template.nm.translation", "r
 
 compress=true
 delimiter=0
-unescape_keys=false
-unescape_translations=true

@@ -8,13 +8,17 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Godot Game Template"
 config/version="0.0.1"
 run/main_scene="uid://ldg2jq7gg87x"
 config/use_custom_user_dir=true
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/image="uid://c0htvw3f2a4yj"
 config/icon="uid://c0htvw3f2a4yj"
 
@@ -58,10 +62,10 @@ folder_colors={
 
 [gui]
 
-theme/custom="uid://12mr6wnl67v2"
-theme/custom_font="uid://c322bulsaw8fv"
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
+theme/custom="uid://12mr6wnl67v2"
+theme/custom_font="uid://c322bulsaw8fv"
 
 [input]
 
@@ -81,8 +85,3 @@ zzz={
 locale/translation_remaps={}
 locale/translations=PackedStringArray("res://assets/localizations/translation_template.en.translation", "res://assets/localizations/translation_template.ru.translation", "res://assets/localizations/translation_template.nm.translation", "res://assets/localizations/translation_template.nml.translation")
 locale/translations_pot_files=PackedStringArray("res://scenes/settings/settings_ui.tscn", "res://scenes/settings/setting_windows/controls_settings_ui.tscn", "res://scenes/settings/setting_windows/game_settings_ui.tscn", "res://scenes/settings/setting_windows/graphic_settings_ui.tscn", "res://scenes/settings/setting_windows/sound_settings_ui.tscn")
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
